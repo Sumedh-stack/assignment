@@ -9,6 +9,12 @@ renderCounters();
 
 function addCustomerToCheckout() {
   const itemCount = parseInt(document.getElementById("itemCount").value);
+
+  
+   if (isNaN(itemCount) || itemCount <= 0) {
+    alert("Please enter a valid positive number of items.");
+    return;
+  }
   const targetCounterIndex = findLeastLoadedCounter();
 
   totalItemsPerCounter[targetCounterIndex] += itemCount;
